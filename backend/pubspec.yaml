@@ -1,0 +1,25 @@
+name: backend
+description: A web server built using the shelf package.
+version: 0.0.1
+#homepage: https://www.example.com
+#author: Alexei Diaz <email@example.com>
+
+environment:
+  sdk: '>=1.20.1 <2.0.0'
+
+dependencies:
+  args: ^0.13.7
+  domain:
+    path: ../domain
+  protobuf: "^0.7.0"
+  shelf: ^0.6.0
+  shelf_proxy: "^0.1.0+4"
+  shelf_route: "^0.14.3"
+  shelf_static: "^0.2.7"
+  shuttlecock: "^0.4.6-dev"
+  protos:
+    path: ../protos
+
+
+#dev_dependencies:
+#  test: ^0.12.0
