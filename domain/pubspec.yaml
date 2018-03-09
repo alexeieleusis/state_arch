@@ -1,0 +1,17 @@
+name: domain
+description: A starting point for Dart libraries or applications.
+version: 0.0.1
+#homepage: https://www.example.com
+#author: Alexei Diaz <email@example.com>
+
+environment:
+  sdk: '>=1.20.1 <2.0.0'
+
+dependencies:
+  protobuf: "^0.7.0"
+  shuttlecock: "^0.4.6-dev"
+  protos:
+    path: ../protos
+
+dev_dependencies:
+  test: ^0.12.0
