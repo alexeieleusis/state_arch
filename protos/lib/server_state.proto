@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "entities.proto";
+
+message ServerState {
+    repeated Company companies = 1;
+    repeated Country contries = 2;
+    repeated Opportunity opportunities = 3;
+    repeated Product products = 4;
+}

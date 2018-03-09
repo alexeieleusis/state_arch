@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "entities.proto";
+
+service CrmServer {
+    rpc CreateProduct (Product) returns (Product);
+
+    rpc GetProduct (Product) returns (Product);
+
+    rpc GetProducts (Empty) returns (ProductsResponse);
+
+    rpc UpdateProduct (Product) returns (Product);
+
+    rpc DeleteProduct (Product) returns (Empty);
+
+    rpc CreateOpportunity (Opportunity) returns (Opportunity);
+
+    rpc GetOpportunity (Opportunity) returns (Opportunity);
+
+    rpc GetOpportunities (Empty) returns (OpportunitiesResponse);
+
+    rpc UpdateOpportunity (Opportunity) returns (Opportunity);
+
+    rpc DeleteOpportunity (Opportunity) returns (Empty);
+
+    rpc CreateCompany (Company) returns (Company);
+
+    rpc GetCompany (Company) returns (Company);
+
+    rpc GetCompanies (Empty) returns (CompaniesResponse);
+
+    rpc UpdateCompany (Company) returns (Company);
+
+    rpc DeleteCompany (Company) returns (Empty);
+}
+
+message CompaniesResponse {
+    repeated Company companies = 1;
+}
+
+message ProductsResponse {
+    repeated Product products = 1;
+}
+
+message OpportunitiesResponse {
+    repeated Opportunity opportunities = 1;
+}
+
+message Empty {
+}
