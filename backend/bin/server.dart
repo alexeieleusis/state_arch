@@ -10,7 +10,6 @@ import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_proxy/shelf_proxy.dart' as proxy;
 import 'package:shelf_route/shelf_route.dart' as route;
 import 'package:shelf_route/shelf_route.dart';
-import 'package:shelf_static/shelf_static.dart' as shelf_static;
 
 void main(List<String> args) {
   final parser = new ArgParser()
@@ -34,9 +33,6 @@ void main(List<String> args) {
 
   io.serve(handler, '0.0.0.0', port).then((server) {
     print('Serving at http://${server.address.host}:${server.port}');
-//    server.last.then((_) {
-//      // Persist the contents of _api.
-//    });
   });
 }
 
@@ -45,9 +41,6 @@ final _api = new ServerApi();
 final _apiRouter = route.router();
 
 final _proxyHandler = proxy.proxyHandler('http://localhost:8080/');
-
-final _staticHandler = shelf_static.createStaticHandler('./static',
-    serveFilesOutsidePath: true, defaultDocument: 'index.html');
 
 route.Router _apiRouteBuilder(route.Router r) => r
   ..addAll(_companiesRouteBuilder, path: '/companies')
@@ -63,7 +56,7 @@ Future<Iterable<int>> _buildBufferFromBody(shelf.Request request) async {
 /// Api router needs to be added before the proxy.
 shelf.Handler _buildCascadeHandler(bool isDevMode) => new shelf.Cascade()
     .add(_apiRouter.handler)
-    .add(isDevMode ? _proxyHandler : _staticHandler)
+    .add(_proxyHandler)
     .handler;
 
 route.Router _companiesRouteBuilder(route.Router r) => r
