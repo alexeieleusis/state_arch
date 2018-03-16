@@ -56,4 +56,9 @@
     <div class="controls">
         <h3>Options</h3>
     </div>
+    <ul>
+        <li *ngFor="let company of companies">
+            {{ company.name }}
+        </li>
+    </ul>
 </material-content>

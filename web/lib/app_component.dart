@@ -11,7 +11,7 @@ import 'package:web/src/shell/shell.dart';
     templateUrl: 'app_component.html',
     directives: const [materialDirectives, Shell],
     providers: const [materialProviders],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+    /*changeDetection: ChangeDetectionStrategy.OnPush*/)
 class AppComponent {
   // Nothing here yet. All logic is in TodoListComponent.
 }

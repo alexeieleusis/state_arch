@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:domain/store/companies_factory.dart';
 import 'package:protobuf/protobuf.dart';
 import 'package:protos/api.pb.dart';
 import 'package:protos/entities.pb.dart';
@@ -8,6 +9,14 @@ import 'package:protos/server_state.pb.dart';
 
 class ServerApi implements CrmServerApi {
   final _state = new ServerState();
+
+
+  ServerApi() {
+    final companiesFactory = new CompaniesFactory();
+    for (var i = 0; i < 15; i++) {
+      _state.companies.add(companiesFactory.createCompany());
+    }
+  }
 
   @override
   Future<Company> createCompany(ClientContext ctx, Company request) {
